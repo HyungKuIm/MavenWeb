@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	안녕하세요 하하하~
+	안녕하세요 하하하~ <br/>
+	${msg}
 </body>
 </html>

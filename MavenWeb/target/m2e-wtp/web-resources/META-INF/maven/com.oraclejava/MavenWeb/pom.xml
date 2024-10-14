@@ -11,6 +11,8 @@
   	<spring.version>5.2.19.RELEASE</spring.version>
   	<junit.version>4.8.2</junit.version>
   	<slf4j.version>1.7.35</slf4j.version>
+  	<org.mybatis.version>3.5.7</org.mybatis.version>
+  	<org.mybatis.spring.version>2.0.3</org.mybatis.spring.version>
   </properties>
   
   <dependencies>
@@ -171,6 +173,18 @@
 	    <version>3.4.3.Final</version>
 	</dependency>
 	
+	
+	<!-- MyBatis -->
+	<dependency>
+		<groupId>org.mybatis</groupId>
+		<artifactId>mybatis</artifactId>
+		<version>${org.mybatis.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.mybatis</groupId>
+		<artifactId>mybatis-spring</artifactId>
+		<version>${org.mybatis.spring.version}</version>
+	</dependency>
 
   </dependencies>
 </project>
