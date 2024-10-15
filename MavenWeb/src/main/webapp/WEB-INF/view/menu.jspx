@@ -1,0 +1,13 @@
+<div id="menu"
+xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:spring="http://www.springframework.org/tags">
+	
+	<jsp:directive.page contentType="text/html; charset=UTF-8" />
+	<jsp:directive.page pageEncoding="UTF-8" />
+	
+	<spring:url value="/emplist" var="empUrl"/>
+	<spring:url value="/" var="homeUrl" />
+	
+	<a href="${homeUrl}">Home</a> | 
+	<a href="${empUrl}">Emp List</a>
+</div>

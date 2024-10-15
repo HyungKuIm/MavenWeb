@@ -4,6 +4,9 @@
 	"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
 	<definition extends="default" name="index">
-		<put-attribute name="body" value="/WEB-INF/view/index.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/view/index.jspx"/>
+	</definition>
+	<definition extends="default" name="emplist">
+		<put-attribute name="body" value="/WEB-INF/view/emplist.jspx"/>
 	</definition>
 </tiles-definitions>	

@@ -1,0 +1,11 @@
+<div id="index"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:spring="http://www.springframework.org/tags">
+	
+	<jsp:directive.page contentType="text/html; charset=UTF-8" />
+	<jsp:directive.page pageEncoding="UTF-8" />
+	안녕하세요 하하하~ <br/>
+	${msg}
+</div>
