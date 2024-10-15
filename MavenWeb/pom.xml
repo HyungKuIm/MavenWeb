@@ -185,7 +185,13 @@
 		<artifactId>mybatis-spring</artifactId>
 		<version>${org.mybatis.spring.version}</version>
 	</dependency>
-
+	
+	<!-- Apache Tiles -->
+	<dependency>
+		<groupId>org.apache.tiles</groupId>
+		<artifactId>tiles-jsp</artifactId>
+		<version>3.0.8</version>
+	</dependency>
   </dependencies>
 </project>
 

@@ -11,10 +11,38 @@
 	
 	<resources location="/static/" mapping="/static/**"/>
 
-	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<beans:property name="prefix" value="/WEB-INF/view/" />
-		<beans:property name="suffix" value=".jsp" />	
+	<beans:bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<beans:property name="viewClass" 
+			value="org.springframework.web.servlet.view.tiles3.TilesView"/>
 	</beans:bean>
+	
+	
+	<beans:bean 
+		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer"
+		id="tilesConfigurer">
+		<beans:property name="definitions">
+			<beans:list>
+				<beans:value>/WEB-INF/layouts/layouts.xml</beans:value>
+				<beans:value>/WEB-INF/view/**/views.xml</beans:value>
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	<context:component-scan base-package="com.oraclejava.controller" />
 	<context:component-scan base-package="com.oraclejava.service" />
