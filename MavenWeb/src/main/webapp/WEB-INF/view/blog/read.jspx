@@ -5,7 +5,7 @@
 	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
 	xmlns:spring="http://www.springframework.org/tags">
 	<jsp:directive.page contentType="text/html; charset=UTF-8" />
-	
+	<spring:url value="/edit/${blog.blogSeq}" var="editUrl"/>
 	
 	<p> 글 번호: ${blog.blogSeq}</p>
 	<p> 제목: ${blog.title}</p>
@@ -16,4 +16,5 @@
 	<hr />
 	<p>입력일: <fmt:formatDate value="${blog.insertDt}" 
 		pattern="yyyy년 MM월 dd일 HH:mm:ss" /></p>
+	<p><a href="${editUrl}">수정</a></p>
 </div>
