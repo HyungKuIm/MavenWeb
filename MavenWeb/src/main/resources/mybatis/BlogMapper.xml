@@ -28,8 +28,8 @@
 		update blog
 		set 
 			title = #{title},
-			blog_bdy = #{blog_bdy}
-		where blog_seq = #{blog_seq}
+			blog_bdy = #{blogBdy}
+		where blog_seq = #{blogSeq}
 	
 	</update>
 </mapper>
