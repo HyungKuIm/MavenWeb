@@ -8,6 +8,12 @@
 		order by insert_dt desc
 	</select>
 	
+	<select id="selectOne" parameterType="int" resultType="blog">
+		select blog_seq, title, blog_bdy, insert_dt
+		from blog
+		where blog_seq = #{blog_seq}
+	</select>
+	
 	<insert id="insert" parameterType="blog">
 		<selectKey keyProperty="blogSeq" resultType="int" order="BEFORE">
 			select seq_blog.nextval from dual

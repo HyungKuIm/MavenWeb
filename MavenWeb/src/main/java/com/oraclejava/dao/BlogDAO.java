@@ -18,8 +18,15 @@ public class BlogDAO {
 		return sqlSession.selectList("BLOG.selectList");
 	}
 	
+	public Blog selectOne(int blogSeq) {
+		return sqlSession.selectOne("BLOG.selectOne", blogSeq);
+	}
+	
 	public int insert(Blog blog) {
 		int result = sqlSession.insert("BLOG.insert", blog);
-		return result;
+		if (result > 0) {
+			return blog.getBlogSeq();
+		}
+		return -1;
 	}
 }

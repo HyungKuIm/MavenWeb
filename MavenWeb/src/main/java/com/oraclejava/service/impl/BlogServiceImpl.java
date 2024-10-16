@@ -24,5 +24,11 @@ public class BlogServiceImpl implements BlogService {
 		int seq = blogDAO.insert(blog);
 		return seq;
 	}
+	
+	@Override
+	public Blog read(int blogSeq) {
+		Blog blog = blogDAO.selectOne(blogSeq);
+		return blog;
+	}
 
 }

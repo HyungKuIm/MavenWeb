@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -27,6 +29,18 @@ public class BlogController {
 		int blogSeq = blogService.create(blog);
 		return "redirect:/read/" + blogSeq;
 	}
+	
+	@GetMapping("/read/{blogSeq}")
+	public String getRead(@PathVariable("blogSeq") int blogSeq,
+			Model model) {
+		Blog blog = blogService.read(blogSeq);
+		blog.setBlogBdy(blog.getBlogBdy()
+				.replace("\r\n", "<br/>")
+				.replace("\n", "<br/>"));
+		model.addAttribute("blog", blog);
+		return "blog/read";
+	}
+	
 	
 	
 	@RequestMapping(value="/list", method=RequestMethod.GET)

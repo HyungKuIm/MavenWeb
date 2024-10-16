@@ -9,4 +9,7 @@
 	<definition extends="blog" name="blog/create">
 		<put-attribute name="body" value="/WEB-INF/view/blog/create.jspx" />
 	</definition>
+	<definition extends="blog" name="blog/read">
+		<put-attribute name="body" value="/WEB-INF/view/blog/read.jspx" />
+	</definition>
 </tiles-definitions>
