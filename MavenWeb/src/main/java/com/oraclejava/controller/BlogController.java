@@ -41,6 +41,15 @@ public class BlogController {
 		return "blog/read";
 	}
 	
+	// 수정
+	@GetMapping("/edit/{blogSeq}")
+	public String getEdit(@PathVariable("blogSeq") int blogSeq,
+			Model model) {
+		Blog blog = blogService.read(blogSeq);
+		model.addAttribute("blog", blog);
+		return "blog/edit";
+	}
+	
 	
 	
 	@RequestMapping(value="/list", method=RequestMethod.GET)

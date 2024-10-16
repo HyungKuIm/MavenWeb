@@ -29,4 +29,14 @@ public class BlogDAO {
 		}
 		return -1;
 	}
+	
+	public int update(Blog blog) {
+		return sqlSession.update("BLOG.update", blog);
+	}
 }
+
+
+
+
+
+

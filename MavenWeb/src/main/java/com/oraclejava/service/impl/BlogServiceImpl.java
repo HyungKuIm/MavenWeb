@@ -31,4 +31,16 @@ public class BlogServiceImpl implements BlogService {
 		return blog;
 	}
 
+	@Override
+	public boolean edit(Blog blog) {
+		int result = blogDAO.update(blog);
+		return result > 0;
+	}
+
 }
+
+
+
+
+
+

@@ -4,7 +4,14 @@
 	xmlns:form="http://www.springframework.org/tags/form">
 	<jsp:directive.page contentType="text/html; charset=UTF-8" />
 	<spring:url value="/create" var="createUrl"/>
-	<form:form modelAttribute="blog" action="${createUrl}" method="post">
+	<spring:url value="/edit/${blog.blogSeq}" var="editUrl"/>
+	
+	<spring:eval expression="blog.blogSeq == null ? createUrl:editUrl" 
+		var="formUrl"/>
+	<spring:eval expression="blog.blogSeq == null ? '쓰기':'수정'" 
+		var="formTitle"/>	
+	
+	<form:form modelAttribute="blog" action="${formUrl}" method="post">
 		<div>
 			제목: <form:input path="title" />
 		</div>
@@ -13,7 +20,7 @@
 			<form:textarea path="blogBdy" cols="60" rows="8"/>
 		</div>
 		<div>
-			<input type="submit" value="쓰기" />
+			<input type="submit" value="${formTitle}" />
 		</div>
 	</form:form>
 </div>

@@ -5,15 +5,15 @@ import java.util.Date;
 
 public class Blog implements Serializable {
 	
-	private int blogSeq;
+	private Integer blogSeq;
 	private String title;
 	private String blogBdy;
 	private Date insertDt;
 	
-	public int getBlogSeq() {
+	public Integer getBlogSeq() {
 		return blogSeq;
 	}
-	public void setBlogSeq(int blogSeq) {
+	public void setBlogSeq(Integer blogSeq) {
 		this.blogSeq = blogSeq;
 	}
 	public String getTitle() {

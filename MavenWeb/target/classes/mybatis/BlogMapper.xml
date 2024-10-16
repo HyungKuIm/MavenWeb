@@ -23,4 +23,20 @@
 		values
 		(#{blogSeq}, #{title}, #{blogBdy})
 	</insert>
+	
+	<update id="update" parameterType="blog">
+		update blog
+		set 
+			title = #{title},
+			blog_bdy = #{blog_bdy}
+		where blog_seq = #{blog_seq}
+	
+	</update>
 </mapper>
+
+
+
+
+
+
+
