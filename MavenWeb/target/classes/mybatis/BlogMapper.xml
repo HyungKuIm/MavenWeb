@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BLOG">
+	<select id="selectList" resultType="blog">
+		select blog_seq, title, blog_bdy, insert_dt
+		from blog
+		order by insert_dt
+	</select>
+</mapper>

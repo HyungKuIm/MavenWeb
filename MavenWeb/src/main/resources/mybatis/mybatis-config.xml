@@ -9,9 +9,11 @@
 	
 	<typeAliases>
 		<typeAlias type="com.oraclejava.model.Employee" alias="employee"/>
+		<typeAlias type="com.oraclejava.model.Blog" alias="blog"/>
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="/mybatis/EmployeeMapper.xml"/>
+		<mapper resource="/mybatis/BlogMapper.xml"/>
 	</mappers>
 </configuration>

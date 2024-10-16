@@ -8,4 +8,9 @@
 		<put-attribute name="menu" value="/WEB-INF/view/menu.jspx"/>
 		<put-attribute name="footer" value="/WEB-INF/view/footer.jspx"/>
 	</definition>
+	
+	<definition name="blog" template="/WEB-INF/layouts/blog.jspx">
+		<put-attribute name="header" value="/WEB-INF/view/blog/header.jspx"/>
+		<put-attribute name="footer" value="/WEB-INF/view/blog/footer.jspx"/>
+	</definition>
 </tiles-definitions>
