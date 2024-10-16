@@ -5,6 +5,16 @@
 	<select id="selectList" resultType="blog">
 		select blog_seq, title, blog_bdy, insert_dt
 		from blog
-		order by insert_dt
+		order by insert_dt desc
 	</select>
+	
+	<insert id="insert" parameterType="blog">
+		<selectKey keyProperty="blogSeq" resultType="int" order="BEFORE">
+			select seq_blog.nextval from dual
+		</selectKey>
+		insert into blog
+		(blog_seq, title, blog_bdy)
+		values
+		(#{blogSeq}, #{title}, #{blogBdy})
+	</insert>
 </mapper>

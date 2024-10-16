@@ -3,7 +3,7 @@
 	xmlns:spring="http://www.springframework.org/tags">
 	<jsp:directive.page contentType="text/html; charset=UTF-8" />
 	
-	<spring:url value="/" var="homeUrl"/>
+	<spring:url value="/list" var="homeUrl"/>
 	
 	<a href="${homeUrl}">Blog...</a>
 	

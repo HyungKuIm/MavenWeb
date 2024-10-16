@@ -18,5 +18,11 @@ public class BlogServiceImpl implements BlogService {
 	public List<Blog> selectList() {
 		return blogDAO.selectList();
 	}
+	
+	@Override
+	public int create(Blog blog) {
+		int seq = blogDAO.insert(blog);
+		return seq;
+	}
 
 }

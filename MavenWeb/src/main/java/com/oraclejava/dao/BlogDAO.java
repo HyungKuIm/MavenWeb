@@ -17,4 +17,9 @@ public class BlogDAO {
 	public List<Blog> selectList() {
 		return sqlSession.selectList("BLOG.selectList");
 	}
+	
+	public int insert(Blog blog) {
+		int result = sqlSession.insert("BLOG.insert", blog);
+		return result;
+	}
 }

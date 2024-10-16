@@ -6,4 +6,5 @@ import com.oraclejava.model.Blog;
 
 public interface BlogService {
 	List<Blog> selectList();
+	int create(Blog blog);
 }

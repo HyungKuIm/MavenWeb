@@ -1,0 +1,19 @@
+<div id="blogCreate"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:form="http://www.springframework.org/tags/form">
+	<jsp:directive.page contentType="text/html; charset=UTF-8" />
+	<spring:url value="/create" var="createUrl"/>
+	<form:form modelAttribute="blog" action="${createUrl}" method="post">
+		<div>
+			제목: <form:input path="title" />
+		</div>
+		<div>
+			본문<p/>
+			<form:textarea path="blogBdy" cols="60" rows="8"/>
+		</div>
+		<div>
+			<input type="submit" value="쓰기" />
+		</div>
+	</form:form>
+</div>
