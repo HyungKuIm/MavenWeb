@@ -1,5 +1,7 @@
 package com.oraclejava.service.impl;
 
+import java.util.List;
+
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.stereotype.Service;
 
@@ -34,5 +36,16 @@ public class CommentServiceImpl implements CommentService {
 		
 		return blogCmt;
 	}
+	
+	@Override
+	public List<BlogCmt> listByBlogSeq(int blogSeq) {
+		return commentDAO.selectListByBlogSeq(blogSeq);
+	}
 
 }
+
+
+
+
+
+

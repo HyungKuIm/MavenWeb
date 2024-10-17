@@ -9,6 +9,7 @@
 	<spring:url value="/edit/${blog.blogSeq}" var="editUrl"/>
 	<spring:url value="/delete" var="deleteUrl"/>
 	<spring:url value="/comment/add" var="commentUrl" />
+	<spring:url value="/comment/list" var="commentListUrl" />
 	
 	<p> 글 번호: ${blog.blogSeq}</p>
 	<p> 제목: ${blog.title}</p>
@@ -36,8 +37,36 @@
 		</form:form>
 	</div>
 	
+	<div id="comment_list"></div>
+	
 	<script>
+		function render_comment(cmtBody, insertDt) {
+			//console.log(cmtBody, insertDt);
+			const html = '<div>
+				<p>{cmtBody}</p><p>date:{insertDt}</p>
+				</div>'.replace("{cmtBody}", cmtBody)
+					   .replace("{insertDt}", new Date(insertDt));
+			$("#comment_list").append(html);	
+		}
+		
+		function init_comment() {
+			$.ajax({
+				url: "${commentListUrl}?blogSeq=${blog.blogSeq}",
+				type: "GET",
+				success: function(data) {
+					//console.log(data);
+					for (comment of data) {
+						render_comment(comment.cmtBody, comment.insertDt);
+					}
+				}
+			});
+				
+		}
+	
 		$(function(){
+			
+			init_comment();
+			
 			$("#btn_cmt_add").click(function(){
 				//alert("버튼 클릭!");
 				const blogSeq = ${blog.blogSeq};

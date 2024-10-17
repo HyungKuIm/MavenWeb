@@ -1,6 +1,9 @@
 package com.oraclejava.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,6 +25,12 @@ public class CommentController {
 	@ResponseBody
 	public BlogCmt add(BlogCmt blogCmt) {
 		return this.commentService.add(blogCmt);
+	}
+	
+	@GetMapping("/list")
+	@ResponseBody
+	public List<BlogCmt> listByBlogSeq(int blogSeq) {
+		return this.commentService.listByBlogSeq(blogSeq);
 	}
 	
 }

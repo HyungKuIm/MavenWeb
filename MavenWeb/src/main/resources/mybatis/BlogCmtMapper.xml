@@ -12,4 +12,11 @@
 		values
 			(#{blgCmtSeq}, #{blogSeq}, #{cmtBody}, #{tmpPw})
 	</insert>
+	
+	<select id="selectListByBlogSeq" parameterType="int"
+		resultType="blogCmt">
+		select blg_cmt_seq, blog_seq, cmt_body, tmp_pw, insert_dt
+		from blg_cmt
+		where blog_seq = #{blogSeq}	
+	</select>
 </mapper>
