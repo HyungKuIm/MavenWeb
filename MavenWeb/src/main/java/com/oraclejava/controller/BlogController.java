@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.oraclejava.model.Blog;
 import com.oraclejava.model.Pagination;
@@ -73,12 +74,16 @@ public class BlogController {
 	
 	
 	@RequestMapping(value="/list", method=RequestMethod.GET)
-	public String list(Model model) {
+	public String list(
+			@RequestParam(required=false, defaultValue = "1") Integer page,
+			Model model) {
 		Pagination pagination = new Pagination();
-		pagination.setPageNo(1);
-		pagination.setAmount(5);
+		pagination.setPageNo(page);
+		pagination.setTotalPages(10);
+		//pagination.setAmount(5);
 		List<Blog> blogList = blogService.selectList(pagination);
 		model.addAttribute("blogList", blogList);
+		model.addAttribute("pagination", pagination);
 		return "blog/list";
 	}
 	

@@ -39,6 +39,18 @@
 		<strong> 블로그 내용이 없습니다 </strong>
 	</c:if>
 	
+	<div>
+		<ul>
+			<c:forEach var="num" begin="1" end="${pagination.totalPages}">
+			<li>
+			<a href="${pageContext.request.contextPath}/list?page=${num}">
+				${num}
+			</a>
+			</li>
+			</c:forEach>
+		</ul>
+	</div>
+	
 </div>
 
 
