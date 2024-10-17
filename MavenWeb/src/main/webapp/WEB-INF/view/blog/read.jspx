@@ -8,6 +8,7 @@
 	<jsp:directive.page contentType="text/html; charset=UTF-8" />
 	<spring:url value="/edit/${blog.blogSeq}" var="editUrl"/>
 	<spring:url value="/delete" var="deleteUrl"/>
+	<spring:url value="/comment/add" var="commentUrl" />
 	
 	<p> 글 번호: ${blog.blogSeq}</p>
 	<p> 제목: ${blog.title}</p>
@@ -34,6 +35,42 @@
 				value="댓글 쓰기" />
 		</form:form>
 	</div>
+	
+	<script>
+		$(function(){
+			$("#btn_cmt_add").click(function(){
+				//alert("버튼 클릭!");
+				const blogSeq = ${blog.blogSeq};
+				const cmtBody = $("#cmtBody").val();
+				const tmpPw = $("#tmpPw").val();
+				let send_data = {};
+				if (tmpPw == "") {
+					send_data = {
+						'blogSeq': blogSeq,	
+						"cmtBody": cmtBody
+					};
+				} else {
+					send_data = {
+						'blogSeq': blogSeq,	
+						"cmtBody": cmtBody,
+						"tmpPw": tmpPw
+					};
+					
+				}
+				
+				$.ajax({
+					url: "${commentUrl}",
+					type: "post",
+					data: send_data,
+					success: function(data) {
+						console.log(data);
+					}
+				});
+				
+				
+			});
+		});
+	</script>
 </div>
 
 
