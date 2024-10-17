@@ -3,7 +3,8 @@
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
 	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
-	xmlns:spring="http://www.springframework.org/tags">
+	xmlns:spring="http://www.springframework.org/tags"
+	xmlns:form="http://www.springframework.org/tags/form">
 	<jsp:directive.page contentType="text/html; charset=UTF-8" />
 	<spring:url value="/edit/${blog.blogSeq}" var="editUrl"/>
 	<spring:url value="/delete" var="deleteUrl"/>
@@ -24,7 +25,26 @@
 			<input type="submit" value="삭제" />
 		</form>
 	</div>
+	<div>
+		<form:form modelAttribute="blogCmt">
+			<form:textarea path="cmtBody"
+				cols="60" rows="5"/>
+			<form:password path="tmpPw"/>	
+			<input type="button" id="btn_cmt_add"
+				value="댓글 쓰기" />
+		</form:form>
+	</div>
 </div>
+
+
+
+
+
+
+
+
+
+
 
 
 

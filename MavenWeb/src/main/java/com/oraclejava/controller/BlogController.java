@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.oraclejava.model.Blog;
+import com.oraclejava.model.BlogCmt;
 import com.oraclejava.model.Pagination;
 import com.oraclejava.service.BlogService;
 
@@ -41,6 +42,7 @@ public class BlogController {
 				.replace("\r\n", "<br/>")
 				.replace("\n", "<br/>"));
 		model.addAttribute("blog", blog);
+		model.addAttribute("blogCmt", new BlogCmt());
 		return "blog/read";
 	}
 	
