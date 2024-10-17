@@ -10,11 +10,13 @@
 	<typeAliases>
 		<typeAlias type="com.oraclejava.model.Employee" alias="employee"/>
 		<typeAlias type="com.oraclejava.model.Blog" alias="blog"/>
+		<typeAlias type="com.oraclejava.model.BlogCmt" alias="blogcmt"/>
 		<typeAlias type="com.oraclejava.model.Pagination" alias="Pagination"/>
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="/mybatis/EmployeeMapper.xml"/>
 		<mapper resource="/mybatis/BlogMapper.xml"/>
+		<mapper resource="/mybatis/BlogCmtMapper.xml"/>
 	</mappers>
 </configuration>

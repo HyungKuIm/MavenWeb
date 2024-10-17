@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BLOG_CMT">
+	<insert id="insert">
+		<selectKey keyProperty="blgCmtSeq" resultType="int"
+			order="BEFORE">
+			select SEQ_BLG_CMT.nextval from dual	
+		</selectKey>
+		insert into BLG_CMT
+			(BLG_CMT_SEQ, BLOG_SEQ, CMT_BODY, TMP_PW)
+		values
+			(#{blgCmtSeq}, #{blogSeq}, #{cmtBody}, #{tmpPw})
+	</insert>
+</mapper>
