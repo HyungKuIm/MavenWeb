@@ -23,6 +23,10 @@ public class BlogDAO {
 		return sqlSession.selectOne("BLOG.selectOne", blogSeq);
 	}
 	
+	public int countBlog() {
+		return sqlSession.selectOne("BLOG.countBlog");
+	}
+	
 	public int insert(Blog blog) {
 		int result = sqlSession.insert("BLOG.insert", blog);
 		if (result > 0) {

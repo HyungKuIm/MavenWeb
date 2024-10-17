@@ -17,6 +17,12 @@ public class BlogServiceImpl implements BlogService {
 	
 	@Override
 	public List<Blog> selectList(Pagination pagination) {
+		// 11 => 3, 10 => 2
+		int countBlog = this.blogDAO.countBlog();
+		int totalPages = (countBlog % pagination.getAmount() == 0) ?
+				countBlog / pagination.getAmount() :
+				countBlog / pagination.getAmount() + 1;	
+		pagination.setTotalPages(totalPages);		
 		return blogDAO.selectList(pagination);
 	}
 	

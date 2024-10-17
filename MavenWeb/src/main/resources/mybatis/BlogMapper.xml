@@ -21,6 +21,11 @@
 		where rn &gt; (#{pageNo} - 1) * #{amount}
 	</select>
 	
+	<select id="countBlog" resultType="int">
+		select count(*)
+		from blog
+	</select>
+	
 	<select id="selectOne" parameterType="int" resultType="blog">
 		select blog_seq, title, blog_bdy, insert_dt
 		from blog

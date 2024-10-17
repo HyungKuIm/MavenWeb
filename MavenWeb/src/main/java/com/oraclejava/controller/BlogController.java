@@ -79,7 +79,7 @@ public class BlogController {
 			Model model) {
 		Pagination pagination = new Pagination();
 		pagination.setPageNo(page);
-		pagination.setTotalPages(10);
+		//pagination.setTotalPages(10);
 		//pagination.setAmount(5);
 		List<Blog> blogList = blogService.selectList(pagination);
 		model.addAttribute("blogList", blogList);
