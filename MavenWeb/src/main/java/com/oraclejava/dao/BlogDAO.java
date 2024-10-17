@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.oraclejava.model.Blog;
+import com.oraclejava.model.Pagination;
 
 @Repository
 public class BlogDAO {
@@ -14,8 +15,8 @@ public class BlogDAO {
 	@Autowired
 	SqlSession sqlSession;
 	
-	public List<Blog> selectList() {
-		return sqlSession.selectList("BLOG.selectList");
+	public List<Blog> selectList(Pagination pagination) {
+		return sqlSession.selectList("BLOG.selectListPaging", pagination);
 	}
 	
 	public Blog selectOne(int blogSeq) {
@@ -33,6 +34,11 @@ public class BlogDAO {
 	public int update(Blog blog) {
 		return sqlSession.update("BLOG.update", blog);
 	}
+	
+	public int delete(int blogSeq) {
+		return sqlSession.delete("BLOG.delete", blogSeq);
+	}
+	
 }
 
 

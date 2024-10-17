@@ -6,6 +6,7 @@
 	xmlns:spring="http://www.springframework.org/tags">
 	<jsp:directive.page contentType="text/html; charset=UTF-8" />
 	<spring:url value="/edit/${blog.blogSeq}" var="editUrl"/>
+	<spring:url value="/delete" var="deleteUrl"/>
 	
 	<p> 글 번호: ${blog.blogSeq}</p>
 	<p> 제목: ${blog.title}</p>
@@ -17,4 +18,13 @@
 	<p>입력일: <fmt:formatDate value="${blog.insertDt}" 
 		pattern="yyyy년 MM월 dd일 HH:mm:ss" /></p>
 	<p><a href="${editUrl}">수정</a></p>
+	<div>
+		<form method="post" action="${deleteUrl}">
+			<input type="hidden" name="blogSeq" value="${blog.blogSeq}"/>
+			<input type="submit" value="삭제" />
+		</form>
+	</div>
 </div>
+
+
+

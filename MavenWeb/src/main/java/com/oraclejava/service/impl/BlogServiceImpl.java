@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.oraclejava.dao.BlogDAO;
 import com.oraclejava.model.Blog;
+import com.oraclejava.model.Pagination;
 import com.oraclejava.service.BlogService;
 
 @Service
@@ -15,8 +16,8 @@ public class BlogServiceImpl implements BlogService {
 	BlogDAO blogDAO;
 	
 	@Override
-	public List<Blog> selectList() {
-		return blogDAO.selectList();
+	public List<Blog> selectList(Pagination pagination) {
+		return blogDAO.selectList(pagination);
 	}
 	
 	@Override
@@ -35,6 +36,11 @@ public class BlogServiceImpl implements BlogService {
 	public boolean edit(Blog blog) {
 		int result = blogDAO.update(blog);
 		return result > 0;
+	}
+	
+	@Override
+	public boolean delete(int blogSeq) {
+		return blogDAO.delete(blogSeq) > 0;
 	}
 
 }

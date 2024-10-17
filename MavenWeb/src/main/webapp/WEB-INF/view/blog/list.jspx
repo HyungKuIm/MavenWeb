@@ -22,8 +22,11 @@
 					<td>${blog.blogSeq}</td>
 					<td>${blog.title}</td>
 					<td>
+					<a href="${pageContext.request.contextPath}/read/${blog.blogSeq}">
 						${fn:substring(blog.blogBdy, 0, 50)}
-						<span>${fn:length(blog.blogBdy) > 50 ? '...':'' }</span>
+						<span>${fn:length(blog.blogBdy) > 50 ? '...':'' }
+						</span>
+					</a>
 					</td>
 					<td><fmt:formatDate value="${blog.insertDt}" 
 						pattern="yyyy년 MM월 dd일 HH시 mm분 ss초"/></td>

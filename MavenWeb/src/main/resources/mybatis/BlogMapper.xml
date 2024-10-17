@@ -8,6 +8,19 @@
 		order by insert_dt desc
 	</select>
 	
+	<select id="selectListPaging" resultType="blog" parameterType="Pagination">
+		select blog_seq, title, blog_bdy, insert_dt
+		from (
+		    select blog_seq, title, blog_bdy, insert_dt, rownum rn
+		    from (
+		        select blog_seq, title, blog_bdy, insert_dt
+		        from blog
+		        order by insert_dt desc)
+		    where rownum &lt;= #{pageNo} * #{amount}
+		)
+		where rn &gt; (#{pageNo} - 1) * #{amount}
+	</select>
+	
 	<select id="selectOne" parameterType="int" resultType="blog">
 		select blog_seq, title, blog_bdy, insert_dt
 		from blog
@@ -32,6 +45,11 @@
 		where blog_seq = #{blogSeq}
 	
 	</update>
+	
+	<delete id="delete" parameterType="int">
+		delete from blog
+		where blog_seq = #{blogSeq}
+	</delete>
 </mapper>
 
 
