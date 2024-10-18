@@ -13,6 +13,11 @@
 			(#{blgCmtSeq}, #{blogSeq}, #{cmtBody}, #{tmpPw})
 	</insert>
 	
+	<delete id="delete">
+		delete from BLG_CMT
+		where BLOG_CMT_SEQ = #{blgCmtSeq}
+	</delete>
+	
 	<select id="selectListByBlogSeq" parameterType="int"
 		resultType="blogCmt">
 		select blg_cmt_seq, blog_seq, cmt_body, tmp_pw, insert_dt
